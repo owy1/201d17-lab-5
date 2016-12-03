@@ -54,8 +54,9 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a,b,c){ //eslint-disable-line
-  var result1 = a + b + c;
-  var result2 = a * b * c;
+  var result1 = sum(sum(a,b)[0], c)[0];
+  var result2 = multiply(multiply(a,b)[0], c)[0];
+
   var message1 = a + ' and ' + b + ' and ' + c + ' sum to ' + result1 + '.';
   var message2 = 'The product of ' + a + ' and ' + b + ' and ' + c
   + ' is ' + result2 + '.';
@@ -82,15 +83,14 @@ var testArray = [2,3,4]; //eslint-disable-line
 var result = 0;
 var message1 = '';
 function sumArray(testArray){ //Remi insists on robust code
-  for (var i=0; i<testArray.length; i++) {
-    result = (sum(result,testArray[i])[0]);
+  for (var i = 0; i < testArray.length; i++) {
+    result = sum(result,testArray[i])[0];
   }
-  "2,3,4 was passed in as an array of numbers, and 9 is their sum."
-  for (var i=0; i<testArray.length; i++) {
-    message1 += testArray[i]
-    +',';
+
+  for (i = 0; i < testArray.length; i++) {
+    message1 += testArray[i] + ',';
   }
-  message1 = message1.substring(0, message1.length - 1)+' was passed in as an array of numbers, and '+result+' is their sum.'
+  message1 = message1.substring(0, message1.length - 1) + ' was passed in as an array of numbers, and ' + result + ' is their sum.';
   return [result, message1];
 }
 
@@ -111,11 +111,24 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-function multiplyArray(testArray){ //eslint-disable-line
 
+
+
+function multiplyArray(testArray){
+  var result = 1; //eslint-disable-line
+  var message1 = 'The numbers ';
+  for (var i = 0; i < testArray.length; i++) {
+    result = multiply(result,testArray[i])[0];
+  }
+
+  for (i = 0; i < testArray.length; i++) {
+    message1 += testArray[i] + ',';
+  }
+  message1 = message1.substring(0, message1.length - 1) + ' have a product of ' + result + '.';
+  return [result, message1];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray([2,3,4]);
+testMultiplyArray([2,3,4]);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
