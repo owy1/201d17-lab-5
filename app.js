@@ -37,7 +37,7 @@ function multiply(a,b){ //eslint-disable-line
 }
 
 // Here is the test for multiply(); uncomment it to run it
- testMultiply(5,9);
+testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -85,17 +85,14 @@ var message1 = '';
 function sumArray(testArray){ //Remi insists on robust code
   for (var i = 0; i < testArray.length; i++) {
     result = sum(result,testArray[i])[0];
-  }
-
-  for (i = 0; i < testArray.length; i++) {
     message1 += testArray[i] + ',';
   }
+
   message1 = message1.substring(0, message1.length - 1) + ' was passed in as an array of numbers, and ' + result + ' is their sum.';
   return [result, message1];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
-
 testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
@@ -111,19 +108,14 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-
-
-
 function multiplyArray(testArray){
   var result = 1; //eslint-disable-line
   var message1 = 'The numbers ';
   for (var i = 0; i < testArray.length; i++) {
     result = multiply(result,testArray[i])[0];
-  }
-
-  for (i = 0; i < testArray.length; i++) {
     message1 += testArray[i] + ',';
   }
+
   message1 = message1.substring(0, message1.length - 1) + ' have a product of ' + result + '.';
   return [result, message1];
 }
